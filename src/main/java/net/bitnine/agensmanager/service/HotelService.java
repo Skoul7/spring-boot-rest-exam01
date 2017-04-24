@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+// import java.util.concurrent.TimeUnit;
+
 import net.bitnine.agensmanager.dao.jpa.HotelRepository;
 import net.bitnine.agensmanager.domain.Hotel;
 
@@ -55,6 +57,13 @@ public class HotelService {
         if (size > 50) {
             counterService.increment("Khoubyari.HotelService.getAll.largePayload");
         }
+        // TimeUnit.SECONDS.sleep(20);
+        try {
+            Thread.sleep(20000);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+
         return pageOfHotels;
     }
 }

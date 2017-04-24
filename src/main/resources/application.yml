@@ -11,7 +11,9 @@ spring.datasource:
 
 server:
   port: 8090
-
+  tomcat:
+    min-spare-threads: 10
+    
 #todo: make sure to always enable security in production
 security:
   basic:
